@@ -30,12 +30,31 @@ header{position:sticky;top:0;z-index:50;background:#1a1108;border-bottom:2px sol
 .hbtn{background:#2a1d10;border:1px solid var(--gold-d);color:var(--gold);padding:6px 12px;border-radius:6px;font-size:12px;letter-spacing:.5px;}
 .hbtn:hover{background:#3a2814;}
 
-.filters{padding:14px 18px;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid #2a1d10;background:#1d140b;}
+.filters{padding:14px 18px;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid #2a1d10;background:#1d140b;font-family:system-ui,-apple-system,sans-serif;}
 .frow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
 .flabel{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold-d);min-width:74px;}
-.chip{background:#241a0f;border:1px solid #3a2c19;color:#cbb98e;padding:4px 11px;border-radius:14px;font-size:12px;text-transform:capitalize;}
+.chip{background:#241a0f;border:1px solid #3a2c19;color:#cbb98e;padding:4px 11px;border-radius:14px;font-size:12px;text-transform:capitalize;font-family:system-ui,-apple-system,sans-serif;}
 .chip:hover{border-color:var(--gold-d);}
 .chip.on{background:var(--gold);color:#1a1108;border-color:var(--gold);font-weight:700;}
+/* class filter chip colors */
+.chip.cls-barbarian{border-color:#9E2B2B;color:#e07070;}
+.chip.cls-barbarian:hover,.chip.cls-barbarian.on{background:#9E2B2B;color:#fff;border-color:#9E2B2B;}
+.chip.cls-fighter{border-color:#B45309;color:#e09050;}
+.chip.cls-fighter:hover,.chip.cls-fighter.on{background:#B45309;color:#fff;border-color:#B45309;}
+.chip.cls-paladin{border-color:#B8860B;color:#e0c040;}
+.chip.cls-paladin:hover,.chip.cls-paladin.on{background:#B8860B;color:#fff;border-color:#B8860B;}
+.chip.cls-cleric{border-color:#5E81AC;color:#9ab8d8;}
+.chip.cls-cleric:hover,.chip.cls-cleric.on{background:#5E81AC;color:#fff;border-color:#5E81AC;}
+.chip.cls-ranger{border-color:#2F6B3D;color:#6ab880;}
+.chip.cls-ranger:hover,.chip.cls-ranger.on{background:#2F6B3D;color:#fff;border-color:#2F6B3D;}
+.chip.cls-rogue{border-color:#6C5BA8;color:#b0a0e0;}
+.chip.cls-rogue:hover,.chip.cls-rogue.on{background:#6C5BA8;color:#fff;border-color:#6C5BA8;}
+.chip.cls-druid{border-color:#5A7D2A;color:#9ac050;}
+.chip.cls-druid:hover,.chip.cls-druid.on{background:#5A7D2A;color:#fff;border-color:#5A7D2A;}
+.chip.cls-warlock{border-color:#9A2B5E;color:#e070a0;}
+.chip.cls-warlock:hover,.chip.cls-warlock.on{background:#9A2B5E;color:#fff;border-color:#9A2B5E;}
+.chip.cls-bard{border-color:#B5388D;color:#e070c0;}
+.chip.cls-bard:hover,.chip.cls-bard.on{background:#B5388D;color:#fff;border-color:#B5388D;}
 #search{flex:1;min-width:180px;padding:8px 12px;background:#241a0f;border:1px solid #3a2c19;color:#f0e6cf;border-radius:8px;font-family:inherit;font-size:14px;}
 #count{font-size:12px;color:var(--gold-d);white-space:nowrap;}
 
@@ -710,7 +729,7 @@ function cardHTML(c,opts){opts=opts||{};
 function buildChips(){
   const classes=[...new Set(LIVE.map(c=>c.c))].sort();
   const types=[...new Set(LIVE.map(c=>c.t))].sort();
-  document.getElementById('classChips').innerHTML=classes.map(c=>'<button class="chip" onclick="toggleFilter(\'cls\',\''+c+'\',this)">'+classLabel(c)+'</button>').join('');
+  document.getElementById('classChips').innerHTML=classes.map(c=>'<button class="chip cls-'+c+'" onclick="toggleFilter(\'cls\',\''+c+'\',this)">'+classLabel(c)+'</button>').join('');
   document.getElementById('typeChips').innerHTML=types.map(t=>'<button class="chip" onclick="toggleFilter(\'type\',\''+t+'\',this)">'+t+'</button>').join('');
 }
 function toggleFilter(kind,val,el){
