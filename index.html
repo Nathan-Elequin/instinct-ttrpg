@@ -54,6 +54,20 @@ header{position:sticky;top:0;z-index:50;background:#1a1108;border-bottom:2px sol
 .chip.cls-warlock:hover,.chip.cls-warlock.on{background:#9A2B5E;color:#fff;border-color:#9A2B5E;}
 .chip.cls-bard{border-color:#B5388D;color:#e070c0;}
 .chip.cls-bard:hover,.chip.cls-bard.on{background:#B5388D;color:#fff;border-color:#B5388D;}
+.chip.type-background{border-color:#6aa0c0;color:#9ac8e0;}
+.chip.type-background:hover,.chip.type-background.on{background:#6aa0c0;color:#fff;border-color:#6aa0c0;}
+.chip.type-ancestry{border-color:#bfa060;color:#d8c080;}
+.chip.type-ancestry:hover,.chip.type-ancestry.on{background:#bfa060;color:#1a1208;border-color:#bfa060;}
+.chip.type-bond{border-color:#8aa880;color:#aac8a0;}
+.chip.type-bond:hover,.chip.type-bond.on{background:#8aa880;color:#1a2a1a;border-color:#8aa880;}
+.chip.type-flaw{border-color:#c87070;color:#e09090;}
+.chip.type-flaw:hover,.chip.type-flaw.on{background:#c87070;color:#fff;border-color:#c87070;}
+.chip.type-trait{border-color:#7a90c0;color:#9aace0;}
+.chip.type-trait:hover,.chip.type-trait.on{background:#7a90c0;color:#fff;border-color:#7a90c0;}
+.chip.type-act{border-color:#1D4ED8;color:#93b8ff;}
+.chip.type-act:hover,.chip.type-act.on{background:#1D4ED8;color:#EFF6FF;border-color:#1D4ED8;}
+.chip.type-react{border-color:#6D28D9;color:#c4b0e8;}
+.chip.type-react:hover,.chip.type-react.on{background:#6D28D9;color:#EDE9FE;border-color:#6D28D9;}
 #search{flex:1;min-width:180px;padding:8px 12px;background:#241a0f;border:1px solid #3a2c19;color:#f0e6cf;border-radius:8px;font-family:inherit;font-size:14px;}
 #count{font-size:12px;color:var(--gold-d);white-space:nowrap;}
 
@@ -80,6 +94,23 @@ header{position:sticky;top:0;z-index:50;background:#1a1108;border-bottom:2px sol
 .kw-bane{background:#7A1F1F;color:#FEE2E2;}
 .kw-cond{background:#C2620E;color:#FFF7ED;}
 .kw-status{background:#475569;color:#F1F5F9;}
+/* loadout recipe pill types */
+.kw-background{background:#633806;color:#fef3c7;}
+.kw-ancestry{background:#14532D;color:#dcfce7;}
+.kw-bond{background:#0f2b15;color:#8aa880;}
+.kw-flaw{background:#5a1010;color:#f0b0a8;}
+.kw-trait{background:#1e2540;color:#7a90c0;}
+.kw-item{background:#3a2a10;color:#e0d0a0;}
+/* per-class ability card pills */
+.kw-barbarian{background:#9E2B2B;color:#fff;}
+.kw-fighter{background:#B45309;color:#fff;}
+.kw-paladin{background:#B8860B;color:#1a1208;}
+.kw-cleric{background:#5E81AC;color:#fff;}
+.kw-ranger{background:#2F6B3D;color:#fff;}
+.kw-rogue{background:#6C5BA8;color:#fff;}
+.kw-druid{background:#5A7D2A;color:#fff;}
+.kw-warlock{background:#9A2B5E;color:#fff;}
+.kw-bard{background:#B5388D;color:#fff;}
 .cb .ic{font-style:normal;margin-right:2px;}
 .cb-act,.cb-react{}
 
@@ -201,19 +232,19 @@ header{position:sticky;top:0;z-index:50;background:#1a1108;border-bottom:2px sol
     align-items: flex-start;
   }.scope-core .card-wrap{
     position: relative;
-    width: 220px;
-    height: 308px;
+    width: 240px;
+    height: 336px;
     flex-shrink: 0;
   }.scope-core .card-shadow{
     position: absolute;
     top: 4px; left: 4px;
-    width: 220px; height: 308px;
+    width: 240px; height: 336px;
     background: #050402;
     border-radius: 8px;
   }.scope-core .card{
     position: relative;
-    width: 220px;
-    height: 308px;
+    width: 240px;
+    height: 336px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -444,7 +475,7 @@ header{position:sticky;top:0;z-index:50;background:#1a1108;border-bottom:2px sol
   }.scope-core .recipe-text.special{
     font-style: italic;
     color: #5a3a10;
-  }.scope-core .fighter .core-header{ background: #1e3a5f; border-bottom-color: #4a7aaf; }.scope-core .fighter{ border: 2px solid #2a5a9f; }.scope-core .fighter .card-shadow{ background: #0a1a2f; }.scope-core .fighter-label{ color: #4a7aaf; border-color: #2a5a9f; }.scope-core .paladin .core-header{ background: #5a4a10; border-bottom-color: #c8a030; }.scope-core .paladin{ border: 2px solid #c8a030; }.scope-core .paladin .card-shadow{ background: #1a1404; }.scope-core .paladin-label{ color: #c8a030; border-color: #c8a030; }.scope-core .ranger .core-header{ background: #1a3a1a; border-bottom-color: #4a8a4a; }.scope-core .ranger{ border: 2px solid #3a7a3a; }.scope-core .ranger .card-shadow{ background: #060e06; }.scope-core .ranger-label{ color: #4a8a4a; border-color: #3a7a3a; }.scope-core .cleric .core-header{ background: #3a3a4a; border-bottom-color: #9a9aba; }.scope-core .cleric{ border: 2px solid #7a7a9a; }.scope-core .cleric .card-shadow{ background: #0e0e14; }.scope-core .cleric-label{ color: #9a9aba; border-color: #7a7a9a; }.scope-core .bard .core-header{ background: #3a1a5a; border-bottom-color: #9a5aba; }.scope-core .bard{ border: 2px solid #7a3a9a; }.scope-core .bard .card-shadow{ background: #0e061a; }.scope-core .bard-label{ color: #9a5aba; border-color: #7a3a9a; }.scope-core .warlock .core-header{ background: #2a0a1a; border-bottom-color: #8a2040; }.scope-core .warlock{ border: 2px solid #6a1a30; }.scope-core .warlock .card-shadow{ background: #0a0408; }.scope-core .warlock-label{ color: #8a2040; border-color: #6a1a30; }.scope-core .druid .core-header{ background: #1a2a0a; border-bottom-color: #6a9a2a; }.scope-core .druid{ border: 2px solid #5a8a1a; }.scope-core .druid .card-shadow{ background: #060a02; }.scope-core .druid-label{ color: #6a9a2a; border-color: #5a8a1a; }.scope-core .barbarian .core-header{ background: #3a0a0a; border-bottom-color: #9a2a1a; }.scope-core .barbarian{ border: 2px solid #7a1a0a; }.scope-core .barbarian .card-shadow{ background: #0e0202; }.scope-core .barbarian-label{ color: #9a2a1a; border-color: #7a1a0a; }.scope-core .rogue .core-header{ background: #0a2a2a; border-bottom-color: #2a7a7a; }.scope-core .rogue{ border: 2px solid #1a5a5a; }.scope-core .rogue .card-shadow{ background: #020a0a; }.scope-core .rogue-label{ color: #2a7a7a; border-color: #1a5a5a; }.scope-core .infernal-num{ background: #6a1a08; }.scope-core .infernal-word{ background: rgba(138,32,16,0.08); color: #4a1408; }.scope-core .fey-num{ background: #3a1a5a; }.scope-core .fey-word{ background: rgba(90,40,120,0.08); color: #3a1458; }.scope-core .oldone-num{ background: #0a1a2a; }.scope-core .oldone-word{ background: rgba(20,40,80,0.08); color: #0a1428; }.scope-core .celestial-num{ background: #3a3a0a; }.scope-core .celestial-word{ background: rgba(100,100,20,0.08); color: #3a3408; }.scope-core .undying-num{ background: #1a1a1a; }.scope-core .undying-word{ background: rgba(40,40,40,0.08); color: #1a1a18; }.scope-core .kinship-zone{
+  }.scope-core .fighter .core-header{ background: #3a1c00; border-bottom-color: #b45309; }.scope-core .fighter{ border: 2px solid #8a3a00; }.scope-core .fighter .card-shadow{ background: #1a0c00; }.scope-core .fighter-label{ color: #b45309; border-color: #8a3a00; }.scope-core .paladin .core-header{ background: #5a4a10; border-bottom-color: #c8a030; }.scope-core .paladin{ border: 2px solid #c8a030; }.scope-core .paladin .card-shadow{ background: #1a1404; }.scope-core .paladin-label{ color: #c8a030; border-color: #c8a030; }.scope-core .ranger .core-header{ background: #1a3a1a; border-bottom-color: #4a8a4a; }.scope-core .ranger{ border: 2px solid #3a7a3a; }.scope-core .ranger .card-shadow{ background: #060e06; }.scope-core .ranger-label{ color: #4a8a4a; border-color: #3a7a3a; }.scope-core .cleric .core-header{ background: #3a3a4a; border-bottom-color: #9a9aba; }.scope-core .cleric{ border: 2px solid #7a7a9a; }.scope-core .cleric .card-shadow{ background: #0e0e14; }.scope-core .cleric-label{ color: #9a9aba; border-color: #7a7a9a; }.scope-core .bard .core-header{ background: #3a1a5a; border-bottom-color: #9a5aba; }.scope-core .bard{ border: 2px solid #7a3a9a; }.scope-core .bard .card-shadow{ background: #0e061a; }.scope-core .bard-label{ color: #9a5aba; border-color: #7a3a9a; }.scope-core .warlock .core-header{ background: #2a0a1a; border-bottom-color: #8a2040; }.scope-core .warlock{ border: 2px solid #6a1a30; }.scope-core .warlock .card-shadow{ background: #0a0408; }.scope-core .warlock-label{ color: #8a2040; border-color: #6a1a30; }.scope-core .druid .core-header{ background: #1a2a0a; border-bottom-color: #6a9a2a; }.scope-core .druid{ border: 2px solid #5a8a1a; }.scope-core .druid .card-shadow{ background: #060a02; }.scope-core .druid-label{ color: #6a9a2a; border-color: #5a8a1a; }.scope-core .barbarian .core-header{ background: #3a0a0a; border-bottom-color: #9a2a1a; }.scope-core .barbarian{ border: 2px solid #7a1a0a; }.scope-core .barbarian .card-shadow{ background: #0e0202; }.scope-core .barbarian-label{ color: #9a2a1a; border-color: #7a1a0a; }.scope-core .rogue .core-header{ background: #1a0f2a; border-bottom-color: #6c5ba8; }.scope-core .rogue{ border: 2px solid #4a3a80; }.scope-core .rogue .card-shadow{ background: #0a0810; }.scope-core .rogue-label{ color: #6c5ba8; border-color: #4a3a80; }.scope-core .infernal-num{ background: #6a1a08; }.scope-core .infernal-word{ background: rgba(138,32,16,0.08); color: #4a1408; }.scope-core .fey-num{ background: #3a1a5a; }.scope-core .fey-word{ background: rgba(90,40,120,0.08); color: #3a1458; }.scope-core .oldone-num{ background: #0a1a2a; }.scope-core .oldone-word{ background: rgba(20,40,80,0.08); color: #0a1428; }.scope-core .celestial-num{ background: #3a3a0a; }.scope-core .celestial-word{ background: rgba(100,100,20,0.08); color: #3a3408; }.scope-core .undying-num{ background: #1a1a1a; }.scope-core .undying-word{ background: rgba(40,40,40,0.08); color: #1a1a18; }.scope-core .kinship-zone{
     background: rgba(80,120,60,0.08);
     border: 0.5px solid rgba(80,120,60,0.25);
     border-radius: 3px;
@@ -579,7 +610,7 @@ header{position:sticky;top:0;z-index:50;background:#1a1108;border-bottom:2px sol
   <div class="filters">
     <div class="frow"><input id="search" placeholder="Search names and rules text..." oninput="applyFilters()"><span id="count"></span></div>
     <div class="frow"><span class="flabel">Class</span><span id="classChips"></span></div>
-    <div class="frow"><span class="flabel">Type</span><span id="typeChips"></span></div>
+    <div class="frow"><span class="flabel">Type</span><span id="typeChips"></span><span class="flabel" style="margin-left:14px;white-space:nowrap">Action Type</span><span id="actionChips"></span></div>
     <div class="frow"><span class="flabel">Actions</span>
       <button class="chip" onclick="selectAllFiltered()">+ Select all (filtered)</button>
       <button class="chip" onclick="clearDeck()">x Clear deck</button>
@@ -632,6 +663,9 @@ let filters = {cls:new Set(), type:new Set()};
 let modalKey=null, modalVerIdx=0, modalVersions=[];
 const SS = window.sessionStorage;
 const ACT_IC='▶', REACT_IC='⚡';
+const BOON_TYPE_ORDER=['Background','Ancestry','Bond','Flaw','Trait'];
+const ACTION_TYPES=['Act','React'];
+const TYPE_PALETTE={'Background':'#6aa0c0','Ancestry':'#bfa060','Bond':'#8aa880','Flaw':'#c87070','Trait':'#7a90c0'};
 
 /* ---------- keyword restyle engine ---------- */
 const KWMAP={'guard':'guard','boost':'boost','hit dice':'hd','hit die':'hd',
@@ -740,15 +774,24 @@ function reworkLabel(ds){const d=daysSince(ds);if(d===null)return '';if(d<=0)ret
 function isRecentRework(c){const d=daysSince(c.rd);return d!==null&&d>=0&&d<=14;}
 function buildGroupedHTML(cards,opts){
   opts=opts||{};
-  const cm={};
-  cards.forEach(c=>{(cm[c.c]||(cm[c.c]=[])).push(c);});
-  const classes=Object.keys(cm).sort();
-  const multi=classes.length>1;
+  const boonBuckets={},classBuckets={};
+  cards.forEach(c=>{
+    if(BOON_TYPE_ORDER.includes(c.t)){(boonBuckets[c.t]||(boonBuckets[c.t]=[])).push(c);}
+    else{(classBuckets[c.c]||(classBuckets[c.c]=[])).push(c);}
+  });
   let html='';
+  BOON_TYPE_ORDER.forEach(type=>{
+    const grp=boonBuckets[type];if(!grp||!grp.length)return;
+    grp.sort((a,b)=>a.n.localeCompare(b.n));
+    html+='<div class="class-divider" style="--cls-color:'+(TYPE_PALETTE[type]||'#c8a96e')+'">'+type+'</div>';
+    html+=grp.map(c=>cardHTML(c,opts)).join('');
+  });
+  const classes=Object.keys(classBuckets).sort();
+  const multiCls=classes.length>1||Object.keys(boonBuckets).length>0;
   classes.forEach(cls=>{
-    cm[cls].sort((a,b)=>{const ta=cardTier(a),tb=cardTier(b);return ta!==tb?ta-tb:a.n.localeCompare(b.n);});
-    if(multi){const col=CONFIG.palette[cls]||'#c8a96e';html+='<div class="class-divider" style="--cls-color:'+col+'">'+cls.charAt(0).toUpperCase()+cls.slice(1)+'</div>';}
-    html+=cm[cls].map(c=>cardHTML(c,opts)).join('');
+    classBuckets[cls].sort((a,b)=>{const ta=cardTier(a),tb=cardTier(b);return ta!==tb?ta-tb:a.n.localeCompare(b.n);});
+    if(multiCls){const col=CONFIG.palette[cls]||'#c8a96e';html+='<div class="class-divider" style="--cls-color:'+col+'">'+cls.charAt(0).toUpperCase()+cls.slice(1)+'</div>';}
+    html+=classBuckets[cls].map(c=>cardHTML(c,opts)).join('');
   });
   return html||'<div class="empty">No cards match these filters.</div>';
 }
@@ -756,9 +799,12 @@ function buildGroupedHTML(cards,opts){
 /* ---------- filters ---------- */
 function buildChips(){
   const classes=[...new Set(LIVE.map(c=>c.c))].sort();
-  const types=[...new Set(LIVE.map(c=>c.t))].sort();
+  const allTypes=[...new Set(LIVE.map(c=>c.t))];
   document.getElementById('classChips').innerHTML=classes.map(c=>'<button class="chip cls-'+c+'" onclick="toggleFilter(\'cls\',\''+c+'\',this)">'+classLabel(c)+'</button>').join('');
-  document.getElementById('typeChips').innerHTML=types.map(t=>'<button class="chip" onclick="toggleFilter(\'type\',\''+t+'\',this)">'+t+'</button>').join('');
+  const orderedBoon=BOON_TYPE_ORDER.filter(t=>allTypes.includes(t));
+  const otherTypes=allTypes.filter(t=>!BOON_TYPE_ORDER.includes(t)&&!ACTION_TYPES.includes(t)&&t).sort();
+  document.getElementById('typeChips').innerHTML=[...orderedBoon,...otherTypes].map(t=>'<button class="chip type-'+t.toLowerCase()+'" onclick="toggleFilter(\'type\',\''+t+'\',this)">'+t+'</button>').join('');
+  document.getElementById('actionChips').innerHTML=ACTION_TYPES.filter(t=>allTypes.includes(t)).map(t=>'<button class="chip type-'+t.toLowerCase()+'" onclick="toggleFilter(\'type\',\''+t+'\',this)">'+{'Act':ACT_IC,'React':REACT_IC}[t]+' '+t+'</button>').join('');
 }
 function toggleFilter(kind,val,el){
   const set=kind==='cls'?filters.cls:filters.type;
