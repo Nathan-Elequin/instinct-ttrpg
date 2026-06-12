@@ -627,6 +627,7 @@ header{position:sticky;top:0;z-index:50;background:#1a1108;border-bottom:2px sol
 .discuss-when{color:#6a5a3a;font-size:11px;}
 .discuss-body{font-size:13px;line-height:1.55;color:#f0e6cf;}
 .discuss-pending{display:inline-block;background:#7a3a10;color:#ffa07a;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;margin-left:4px;}
+.discuss-form-wrap{border-top:1px solid #2a1d10;margin-top:6px;padding-top:12px;}
 
 /* ===== ONBOARDING OVERLAY ===== */
 #ob-overlay{position:fixed;inset:0;z-index:300;background:rgba(10,7,3,.96);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:32px 16px 60px;}
@@ -792,6 +793,7 @@ const KWMAP={'guard':'guard','boost':'boost','hit dice':'hd','hit die':'hd',
  'act':'act','acts':'act','react':'react','reacts':'react'};
 const KWICON={act:ACT_IC,react:REACT_IC};
 function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function escAttr(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function kwId(raw){return KWMAP[(raw||'').trim().toLowerCase()]||null;}
 function titleCase(s){return (s||'').replace(/\b([a-z])/g,function(m,c){return c.toUpperCase();});}
 function kwPill(text,id){
@@ -1195,6 +1197,24 @@ async function deleteCommentLive(k,i){
     toast('Comment deleted');renderComments();
   }catch(e){toast('Could not delete (needs delete access on Comments)');}
 }
+async function postDiscussComment(k){
+  const form=[...document.querySelectorAll('.discuss-form')].find(f=>f.dataset.key===k);
+  if(!form)return;
+  const nameEl=form.querySelector('.df-name'),bodyEl=form.querySelector('.df-body'),chkEl=form.querySelector('.df-chk');
+  const name=(nameEl.value||'').trim()||'Anon';
+  const body=(bodyEl.value||'').trim();
+  if(!body){toast('Write a comment first');return;}
+  const change=!!(chkEl&&chkEl.checked);
+  SS.setItem('irpg_cmt_name',name);
+  if(CONFIG.useLive){try{await postCommentLive(k,name,body,change);}catch(e){toast('Could not post');return;}}
+  const now=new Date().toISOString().slice(0,16).replace('T',' ');
+  if(!RECENT_CMTS[k])RECENT_CMTS[k]=[];
+  RECENT_CMTS[k].unshift({name,body,when:now,change});
+  const cnt=Object.keys(RECENT_CMTS).length;
+  const badge=document.getElementById('discussBadge');if(badge)badge.textContent=cnt;
+  toast('Comment posted');
+  renderDiscuss(false);
+}
 async function loadRecentComments(){
   if(!CONFIG.useLive){RECENT_CMTS_LOADED=true;return;}
   try{
@@ -1255,6 +1275,14 @@ async function renderDiscuss(force){
           +'<span class="discuss-cmt-n">'+cmts.length+' recent comment'+(cmts.length!==1?'s':'')+'</span>'
         +'</div>'
         +'<div class="discuss-cmts-list">'+cmtHTML+'</div>'
+        +'<div class="discuss-form-wrap">'
+          +'<div class="cmtform discuss-form" data-key="'+escAttr(c.k)+'">'
+            +'<input class="df-name" placeholder="Your name" value="'+escAttr(SS.getItem('irpg_cmt_name')||'')+'">'
+            +'<textarea class="df-body" placeholder="Leave feedback on this card..."></textarea>'
+            +'<label class="cmt-chk"><input type="checkbox" class="df-chk"> Mark as a change to apply on next push</label>'
+            +'<button onclick="postDiscussComment(this.closest(\'.discuss-form\').dataset.key)">Post comment</button>'
+          +'</div>'
+        +'</div>'
       +'</div>'
       +'</div>';
   }).join('');
